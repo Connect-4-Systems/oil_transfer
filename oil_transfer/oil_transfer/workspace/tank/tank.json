@@ -1,0 +1,62 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"H3y0NRXsni\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Tank</span>\",\"col\":12}},{\"id\":\"bEyV9fRpq5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ADD OUT\",\"col\":6}},{\"id\":\"OJY73FeT5U\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"ADD IN\",\"col\":5}},{\"id\":\"u_KObiSBd-\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"9agQTpbUhH\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Stock\",\"col\":4}},{\"id\":\"jpEp0621dd\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Daily OUT Qty\",\"col\":4}},{\"id\":\"OV65nU4bz8\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today IN\",\"col\":4}}]",
+ "creation": "2024-07-14 09:10:23.994111",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "color-review-points",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Tank",
+ "links": [],
+ "modified": "2024-07-14 09:16:31.467506",
+ "modified_by": "Administrator",
+ "module": "Oil Transfer",
+ "name": "Tank",
+ "number_cards": [
+  {
+   "label": "Total Stock",
+   "number_card_name": "Total Stock"
+  },
+  {
+   "label": "Daily OUT Qty",
+   "number_card_name": "Oil OUT"
+  },
+  {
+   "label": "Today IN",
+   "number_card_name": "Oil IN"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "All"
+  }
+ ],
+ "sequence_id": 23.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "New",
+   "label": "ADD OUT",
+   "link_to": "Oil Output",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "ADD IN",
+   "link_to": "Oil Input",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Tank"
+}

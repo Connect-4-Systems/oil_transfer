@@ -213,3 +213,12 @@ app_license = "MIT"
 # auth_hooks = [
 # 	"oil_transfer.auth.validate"
 # ]
+
+fixtures = [
+	{"doctype": "Custom Field","filters": [],},
+	{"doctype": "Server Script", "filters": [],},
+	{"doctype": "Client Script", "filters": [],},
+	{"doctype": "Item", "filters": [["name", "in", ["D",],],],},
+	{"doctype": "Number Card", "filters": [["name", "in", ["Oil IN", "Oil OUT", "Total Stock"],],],},
+#	{"doctype": "Workspace", "filters": [["name", "in", ["Tank",],],],},
+]

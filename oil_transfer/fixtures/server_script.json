@@ -1,0 +1,34 @@
+[
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "After Submit",
+  "event_frequency": "All",
+  "modified": "2024-07-14 08:32:33.363473",
+  "module": "Oil Transfer",
+  "name": "Oil Input: Create Invoice",
+  "reference_doctype": "Oil Input",
+  "script": "today_date = frappe.utils.today()\r\nsupplier = doc.supplier\r\nqty = doc.qty\r\n\r\nwarehouse = frappe.get_last_doc(\"Warehouse\", filters={})\r\nif not warehouse:\r\n    frappe.throw(\"There are not Warehouse related to Currrent User, Contact to Admin.\")\r\nelse:\r\n    warehouse = warehouse\r\n\r\nitem_code = 'D'\r\nif not frappe.db.exists('Item', item_code):\r\n    frappe.throw(\"There are not Item 'D', Contact to Admin.\")\r\n\r\nuom = 'Litre'\r\nif not frappe.db.exists('UOM', uom):\r\n    frappe.throw(\"There are not UOM 'Litre', Contact to Admin.\")\r\n\r\npurchase_invoice = frappe.new_doc(\"Purchase Invoice\")\r\npurchase_invoice.supplier = supplier\r\npurchase_invoice.posting_date = today_date\r\npurchase_invoice.due_date = today_date\r\npurchase_invoice.update_stock = True\r\npurchase_invoice.set_warehouse = warehouse\r\n\r\npurchase_invoice.append(\"items\", {\r\n    \"item_code\": item_code,\r\n    \"item_name\": item_code,\r\n    \"qty\": qty,\r\n    \"uom\": uom,\r\n    \"rate\": 0,\r\n    \"warehouse\": warehouse,\r\n})\r\n\r\npurchase_invoice.insert(ignore_permissions=True)\r\npurchase_invoice.submit()\r\n",
+  "script_type": "DocType Event"
+ },
+ {
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "After Submit",
+  "event_frequency": "All",
+  "modified": "2024-07-14 08:33:16.923801",
+  "module": "Oil Transfer",
+  "name": "Oil Output: Create Invoice",
+  "reference_doctype": "Oil Output",
+  "script": "today_date = frappe.utils.today()\r\ncustomer = doc.customer\r\nqty = doc.qty\r\n\r\nwarehouse = frappe.get_last_doc(\"Warehouse\", filters={})\r\nif not warehouse:\r\n    frappe.throw(\"There are not Warehouse related to Currrent User, Contact to Admin.\")\r\nelse:\r\n    warehouse = warehouse\r\n\r\nitem_code = 'D'\r\nif not frappe.db.exists('Item', item_code):\r\n    frappe.throw(\"There are not Item 'D', Contact to Admin.\")\r\n\r\nuom = 'Litre'\r\nif not frappe.db.exists('UOM', uom):\r\n    frappe.throw(\"There are not UOM 'Litre', Contact to Admin.\")\r\n\r\nsales_invoice = frappe.new_doc(\"Sales Invoice\")\r\nsales_invoice.customer = customer\r\nsales_invoice.posting_date = today_date\r\nsales_invoice.due_date = today_date\r\nsales_invoice.update_stock = True\r\nsales_invoice.set_warehouse = warehouse\r\n\r\nsales_invoice.append(\"items\", {\r\n    \"item_code\": item_code,\r\n    \"item_name\": item_code,\r\n    \"qty\": qty,\r\n    \"uom\": uom,\r\n    \"rate\": 0,\r\n    \"warehouse\": warehouse,\r\n})\r\n\r\nsales_invoice.insert(ignore_permissions=True)\r\nsales_invoice.submit()\r\n",
+  "script_type": "DocType Event"
+ }
+]
